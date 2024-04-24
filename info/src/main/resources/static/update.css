@@ -1,0 +1,23 @@
+.add-input {
+    width: 98%;
+    height: 30px;
+}
+
+.add-button {
+    background-color: #0c63e4;
+    color: white;
+    margin-bottom: 20px;
+    float: right;
+    height: 40px;
+    width: 60px;
+}
+
+.add-div {
+    margin-top: 20px;
+}
+
+#add-div {
+    margin-top: 20px;
+    padding-right: 30px;
+
+}

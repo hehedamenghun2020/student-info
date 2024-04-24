@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.StudentMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.entity.Student">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="sex" jdbcType="INTEGER" property="sex" />
+        <result column="birth" jdbcType="VARCHAR" property="birth" />
+        <result column="time" jdbcType="INTEGER" property="time" />
+        <result column="score1" jdbcType="INTEGER" property="score1" />
+        <result column="score2" jdbcType="INTEGER" property="score2" />
+    </resultMap>
+
+    <select id="findall" resultType="com.example.entity.Student">
+        select * from stu_info
+    </select>
+    <select id="findit" resultType="com.example.entity.Student">
+        SELECT * from stu_info where NAME = '${name}'
+    </select>
+    <insert id="add" parameterType="com.example.entity.Student">
+
+        insert into stu_info (id, name, sex, birth, time, score1, score2) values (#{id},#{name},#{sex},#{birth},#{time},#{score1},#{score2});
+
+    </insert>
+    <delete id="Delete"  parameterType="com.example.entity.Student">
+        DELETE FROM stu_info WHERE id = #{student.id}
+    </delete>
+    <update id="update" parameterType="com.example.entity.Student">
+        update stu_info set id=#{id},name=#{name},sex=#{sex},birth=#{birth},time=#{time},score1=#{score1},score2=#{score2} where id=#{id}
+    </update>
+    <select id="selectStudentById" resultType="com.example.entity.Student">
+        SELECT id,name,sex,birth,time,score1,score2 FROM stu_info WHERE id=#{id}
+    </select>
+
+<!--    <insert id="Add" parameterType="com.example.entity.Student">-->
+<!--        INSERT INTO stu_info-->
+<!--        <trim prefix="(" suffix=")" suffixOverrides=",">-->
+<!--            <if test="student.id != null">-->
+<!--                id,-->
+<!--            </if>-->
+<!--            <if test="student.name != null">-->
+<!--                name,-->
+<!--            </if>-->
+<!--            <if test="student.sex != null">-->
+<!--                sex,-->
+<!--            </if>-->
+<!--            <if test="student.birth != null">-->
+<!--                birth,-->
+<!--            </if>-->
+<!--            <if test="student.time != null">-->
+<!--                time,-->
+<!--            </if>-->
+<!--            <if test="student.score1 != null">-->
+<!--                score1,-->
+<!--            </if>-->
+<!--            <if test="student.score2 != null">-->
+<!--                score2,-->
+<!--            </if>-->
+<!--        </trim>-->
+<!--        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">-->
+<!--            <if test="student.id != null">-->
+<!--                #{student.id,jdbcType=INTEGER},-->
+<!--            </if>-->
+<!--            <if test="student.name != null">-->
+<!--                #{student.name,jdbcType=VERCHAR},-->
+<!--            </if>-->
+<!--            <if test="student.sex != null">-->
+<!--                #{student.sex,jdbcType=INTEGER},-->
+<!--            </if>-->
+<!--            <if test="student.birth != null">-->
+<!--                #{student.birth,jdbcType=VERCHAR},-->
+<!--            </if>-->
+<!--            <if test="student.time != null">-->
+<!--                #{student.time,jdbcType=INTEGER},-->
+<!--            </if>-->
+<!--            <if test="student.score1 != null">-->
+<!--                #{student.score1,jdbcType=INTEGER},-->
+<!--            </if>-->
+<!--            <if test="student.score2 != null">-->
+<!--                #{student.score2,jdbcType=INTEGER},-->
+<!--            </if>-->
+<!--        </trim>-->
+<!--    </insert>-->
+
+</mapper>

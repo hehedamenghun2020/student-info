@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>修改学生信息</title>
+  <link rel="stylesheet" href="update.css">
+</head>
+<body>
+<div class="container">
+  <form action="/update" method="post">
+    <div class="add-div"><a>学号</a></div>
+    <input class="add-input" type="text" placeholder="请输入学号" th:value="${id}" name="id">
+    <div class="add-div"><a>姓名</a></div>
+    <input class="add-input" type="text" placeholder="请输入姓名" th:value="${name}" name="name">
+    <div class="add-div"><a>性别</a></div>
+    <input class="add-input" type="text" placeholder="请输入性别(1:男 0:女)" th:value="${sex}" name="sex">
+    <div class="add-div"><a>出生日期</a></div>
+    <input  class="add-input"type="text" placeholder="请输入出生日期" th:value="${birth}" name="birth">
+    <div class="add-div"><a>入学年份</a></div>
+    <input class="add-input" type="text" placeholder="请输入入学年份" th:value="${time}" name="time">
+    <div class="add-div"><a>程序设计基础成绩</a></div>
+    <input class="add-input" type="text" placeholder="请输入程序设计基础成绩" th:value="${score1}" name="score1">
+    <div class="add-div"><a>Web开发与安全成绩</a></div>
+    <input class="add-input" type="text" placeholder="请输入Web开发与安全成绩" th:value="${score2}" name="score2">
+    <div id="add-div">
+      <button type="submit" class="add-button" href="update">修改</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>
